@@ -1,4 +1,5 @@
 using CustomerJob;
+using CustomerJob.Consumers;
 using CustomerJob.Models.Settings;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
@@ -16,13 +17,12 @@ Log.Logger = new LoggerConfiguration()
         )
     )
     .WriteTo.File(
-        "logs/log.txt",
+        "Logs/log.txt",
         rollingInterval: RollingInterval.Day,
         outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}",
         restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Debug
     )
     .CreateLogger();
-
 
 try
 {
@@ -56,12 +56,15 @@ try
 
     #endregion Settings Validation ServiceBus/Database  
 
+    builder.Services.Configure<ServiceBusSettings>(builder.Configuration.GetSection("AzureServiceBus"));
+
     // Clear default logging and use Serilog
     builder.Logging.ClearProviders();
     builder.Logging.AddSerilog();
 
     builder.Services.AddHostedService<Job>();
 
+    builder.Services.AddSingleton<CustomerConsumer>();
     var app = builder.Build();
     await app.RunAsync();
 }
