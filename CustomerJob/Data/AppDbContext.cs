@@ -25,14 +25,6 @@ namespace CustomerJob.Data
             modelBuilder.Entity<Customer>().HasKey(c => c.CustomerId);
             modelBuilder.Entity<Brand>().HasKey(b => b.BrandId);
 
-            modelBuilder.Entity<Customer>()
-                .HasIndex(c => c.CustomerId)
-                .IsUnique();
-
-            modelBuilder.Entity<Brand>()
-                .HasIndex(b => b.BrandId)
-                .IsUnique();
-
             modelBuilder.Entity<CustomerBrand>()
                 .HasKey(cb => new { cb.CustomerId, cb.BrandId });
 
