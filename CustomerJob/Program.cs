@@ -1,9 +1,9 @@
 using CustomerJob;
 using CustomerJob.Consumers;
+using CustomerJob.Data;
 using CustomerJob.Models.Settings;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
-using System;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
@@ -30,14 +30,7 @@ try
 
     var builder = Host.CreateApplicationBuilder(args);
 
-    // Load configuration from Secrets or AppSettings
-
-    builder.Configuration
-        .AddJsonFile("appsettings.json", optional: false)
-        .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
-        .AddUserSecrets<Program>(optional: true);
-
-    #region Settings Validation ServiceBus/Database
+    #region Settings validation ServiceBus/Database
 
     var serviceBusSettings = builder.Configuration.GetSection("AzureServiceBus").Get<ServiceBusSettings>();
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -58,6 +51,9 @@ try
 
     builder.Services.Configure<ServiceBusSettings>(builder.Configuration.GetSection("AzureServiceBus"));
 
+    builder.Services.AddDbContext<AppDbContext>(options
+        => options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
     // Clear default logging and use Serilog
     builder.Logging.ClearProviders();
     builder.Logging.AddSerilog();
@@ -67,6 +63,7 @@ try
     builder.Services.AddSingleton<CustomerConsumer>();
     var app = builder.Build();
     await app.RunAsync();
+
 }
 catch (Exception ex)
 {
