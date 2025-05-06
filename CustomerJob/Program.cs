@@ -2,6 +2,7 @@ using CustomerJob;
 using CustomerJob.Consumers;
 using CustomerJob.Data;
 using CustomerJob.Models.Settings;
+using CustomerJob.Services;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -59,8 +60,9 @@ try
     builder.Logging.AddSerilog();
 
     builder.Services.AddHostedService<Job>();
-
     builder.Services.AddSingleton<CustomerConsumer>();
+    builder.Services.AddScoped<IDataStorageService, DataStorageService>();
+
     var app = builder.Build();
     await app.RunAsync();
 
