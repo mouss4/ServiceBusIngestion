@@ -67,21 +67,9 @@ namespace CustomerJob.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Brands_BrandId",
-                table: "Brands",
-                column: "BrandId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_CustomerBrands_BrandId",
                 table: "CustomerBrands",
                 column: "BrandId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Customers_CustomerId",
-                table: "Customers",
-                column: "CustomerId",
-                unique: true);
         }
 
         /// <inheritdoc />

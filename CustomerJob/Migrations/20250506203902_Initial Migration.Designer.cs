@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CustomerJob.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250506005441_Initial Migration")]
+    [Migration("20250506203902_Initial Migration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -35,9 +35,6 @@ namespace CustomerJob.Migrations
                         .HasColumnType("text");
 
                     b.HasKey("BrandId");
-
-                    b.HasIndex("BrandId")
-                        .IsUnique();
 
                     b.ToTable("Brands");
                 });
@@ -76,9 +73,6 @@ namespace CustomerJob.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("CustomerId");
-
-                    b.HasIndex("CustomerId")
-                        .IsUnique();
 
                     b.ToTable("Customers");
                 });

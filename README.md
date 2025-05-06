@@ -23,7 +23,7 @@ To get a local copy up and running follow these simple steps.
         "ConnectionStrings": {
             "DefaultConnection": "Server=<URL>;User Id=<USERNAME>;Password=<PASSWORD>;Database=<DATABASE>",
         },
-        "AzureServiceBus"{
+        "AzureServiceBus":{
             "ConnectionString": "<AzureServiceBus_ConnectionString>",
             "QueueName": "<QueueName>"
         }

@@ -33,9 +33,6 @@ namespace CustomerJob.Migrations
 
                     b.HasKey("BrandId");
 
-                    b.HasIndex("BrandId")
-                        .IsUnique();
-
                     b.ToTable("Brands");
                 });
 
@@ -73,9 +70,6 @@ namespace CustomerJob.Migrations
                         .HasColumnType("integer");
 
                     b.HasKey("CustomerId");
-
-                    b.HasIndex("CustomerId")
-                        .IsUnique();
 
                     b.ToTable("Customers");
                 });

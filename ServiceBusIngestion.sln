@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerJob", "CustomerJob\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerJob.UnitTests", "CustomerJob.Tests\CustomerJob.UnitTests.csproj", "{C94E90B0-0098-4C6E-A8CD-AA7E8238FCAD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0C3CA33A-B737-4E8A-975D-55C17BC5CBE1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerJob.IntegrationTests", "CustomerJob.IntegrationTests\CustomerJob.IntegrationTests.csproj", "{1250700D-93F8-4E7E-8E20-95300D63ED01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +23,10 @@ Global
 		{C94E90B0-0098-4C6E-A8CD-AA7E8238FCAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C94E90B0-0098-4C6E-A8CD-AA7E8238FCAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C94E90B0-0098-4C6E-A8CD-AA7E8238FCAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1250700D-93F8-4E7E-8E20-95300D63ED01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1250700D-93F8-4E7E-8E20-95300D63ED01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1250700D-93F8-4E7E-8E20-95300D63ED01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1250700D-93F8-4E7E-8E20-95300D63ED01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
