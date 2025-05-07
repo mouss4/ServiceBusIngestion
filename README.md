@@ -2,7 +2,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-**ServiceBusIngestion** is a .NET Worker Service that listens to messages from an Azure Service Bus queue and stores them in a PostgreSQL database.
+**ServiceBusIngestion** is a Worker Service that listens to messages from an Azure Service Bus queue and stores them in a PostgreSQL database.
 
 
 <!-- GETTING STARTED -->
